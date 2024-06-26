@@ -81,7 +81,7 @@ return {status, data, message}
 }
 
 const fncall = FSONFn('success', ['js', 'ts'], 'successfull');
-console.log(fncall);
+// console.log(fncall);
 
 //generics
 
@@ -90,10 +90,10 @@ function getArray<T>(items: T[]){
 }
 
 const st1Array = getArray(['book', 'copy']);
-console.log(st1Array);
+// console.log(st1Array);
 
 const st2array = getArray([12, 43, 54]);
-console.log(st2array);
+// console.log(st2array);
 
 //multi type variable in generics in fn
 
@@ -102,7 +102,19 @@ function MultiTypeGenerics<T, U>(name: T, contact: U): [T, U]{
 }
 
 const callfn = MultiTypeGenerics<string, number>('nischal', 123);
-console.log(callfn);
+// console.log(callfn);
+
+
+const bcrypt = require('bcryptjs');
+
+async function PasswordBcrypt(username: string, password: string){
+    const bcryptpass = await bcrypt.hash(password, 10);
+    console.log(bcryptpass);
+    
+}
+
+PasswordBcrypt('nischal', 'dsfdsfdsfd')
+
 
 
 
