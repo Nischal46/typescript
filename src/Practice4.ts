@@ -1,57 +1,29 @@
-import input from "readline-sync";
-const bcrypt = require('bcryptjs');
+const bcrypting = require("bcryptjs");
 
-let arrRecord = [];
-let bool:boolean = true;
+let PasswordStoreDB: unknown;
+async function PasswordEncrypter(pass: string): Promise<string> {
+    const encryptPass = await bcrypting.hash(pass, 10);
+    return encryptPass;
+}
 
-function AppManual(): void{
-    console.log(`
-        ----------------Travel App-----------------
-        1) Registration
-        2) Login
-        3) Update password
-    `)
+PasswordEncrypter('hello')
+    .then((res) => {
+        PasswordStoreDB = <string>res
+        console.log(PasswordStoreDB);
+        PasswordChecker('hello');
+    })
+    .catch((err) => console.log(err)
+    )
+
+async function PasswordChecker(pass: string) {
+
+    const passChecker = await bcrypting.compare(pass, PasswordStoreDB);
+    console.log(passChecker);
+
+    if (passChecker) console.log('Password matched');
+    else console.log('Password doesnot match');
+
 }
 
 
-async function PasswordEncypter(password: string) {
-    const response = await bcrypt.hash(password, 10);
-    return response;
-}
 
-while(bool){
-    AppManual();
-
-    const userchoice: number = +(input.question('Enter choice: '));
-
-    switch(userchoice){
-        case 1:
-            const name: string = input.question("Enter user name");
-            const pass: string = input.question("Enter user pass");
-
-            if(name !== "" && pass !== ""){
-               const username: string = name;
-               let userpass: any;
-               PasswordEncypter(pass)
-               .then((res) => console.log(res)
-               
-               )
-               .catch((err) => console.log(err)
-               )
-              if(userpass !== "" || userpass !== undefined){
-                console.log('Registered successfully');
-                arrRecord.push({username, userpass});
-              }
-            }
-            console.log(arrRecord);
-
-            break;
-
-        // case 2:
-        //     const uname: string = input.question("Enter user name");
-        //     const upass: string = input.question("Enter user pass"); 
-
-        
-        
-        }
-}
