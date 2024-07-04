@@ -42,4 +42,36 @@ let matrix3dimension = [
     [7,8,9]
 ]
 
-console.table(RowColumnZero(matrix3dimension));
+// console.table(RowColumnZero(matrix3dimension));
+
+//map method
+
+const newMap = new Map([
+    ['name', 'nischal'],
+    ['profession', 'it']
+]);
+
+newMap.set('email', 'nisal@gmail.com')
+
+console.log(newMap);
+
+
+console.log('object copy');
+
+let object_1 = {
+    songname: 'boulevard of broken dream',
+    singer: 'greenday'
+}
+
+let object_2 = {...object_1};
+
+
+
+
+
+
+
+
+ 
+
+
