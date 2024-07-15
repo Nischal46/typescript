@@ -20,3 +20,13 @@ let displayDetails = DisplayDetails<string, number>('Nischal Baniya', 9832343223
 console.log(displayDetails);
 
 
+
+interface jsonObject<T, U, V>{
+    username: T,
+    contact: U,
+    isActive: V
+}
+
+let a1: jsonObject<string, number, boolean> = {username: 'nischal', contact: 9843345465, isActive: true};
+console.log(a1);
+
