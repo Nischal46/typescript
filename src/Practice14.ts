@@ -35,6 +35,61 @@ async function INSERTDOCUMENT() {
     }
 }
 
+async function UPDATEDOCUMENT(){
+
+    const DBConnection = await dbPool.getConnection();
+
+    try {
+        const updateSQL = `UPDATE USERS SET user_role = ? WHERE user_name = ?`;
+        const insertValues = ['admin', 'nischal'];
+        const [result] = await DBConnection.execute(updateSQL, insertValues);
+        console.log('Successfully updated documents', result);
+        
+    } catch (error) {
+        console.log('Error while updating documents', error);
+        
+    }
+    finally{
+        DBConnection.release();
+    }
+}
+
+async function DELETEDOCUMENTS(){
+    const DBConnection = await dbPool.getConnection();
+
+    try {
+        const deleteSQL = `DELETE FROM USERS WHERE user_role = ?`;
+        const deleteValues = ['guest'];
+        const [result] = await DBConnection.execute(deleteSQL, deleteValues);
+        console.log('Successfully delete documents', result);
+        
+    } catch (error) {
+        console.log('Error while deleting documents', error);
+        
+    }
+    finally{
+        DBConnection.release();
+    }
+
+}
+
+async function GETALLDOCUMENTS(){
+    const DBConnection = await dbPool.getConnection();
+
+    try {
+        const getSQL = `SELECT * FROM USERS`;
+        const result = await DBConnection.execute(getSQL);
+        console.log('Successfully get documents', result[0]);
+        
+    } catch (error) {
+        console.log('Error while get documents', error);
+        
+    }
+    finally{
+        DBConnection.release();
+    }
+}
+
 (async() => {
 
 
@@ -45,7 +100,19 @@ async function INSERTDOCUMENT() {
     
         if (choice === 1) {
     
-            INSERTDOCUMENT()
+            INSERTDOCUMENT();
+        }
+
+        else if(choice === 2){
+            UPDATEDOCUMENT();
+        }
+
+        else if(choice === 3){
+            DELETEDOCUMENTS();
+        }
+
+        else if(choice === 4){
+            GETALLDOCUMENTS()
         }
     
         else {
