@@ -12,7 +12,7 @@ let stAray = [
     }
 ]
 
-function addUser(no: number, name: string, email: string){
+function addUser(no: number, name: string, email: string) {
     stAray.push({
         id: no,
         name: name,
@@ -23,16 +23,28 @@ function addUser(no: number, name: string, email: string){
 }
 
 class DBMYSQL {
-    constructor(){}
+    constructor() { }
 
-    async registerUser(no: number, name: string, email: string){
+    async registerUser(no: number, name: string, email: string) {
         const data = await addUser(no, name, email);
         console.log('User Added successfully');
-        
+
         return data;
+    }
+
+    async searchUser(no: number) {
+        const data = stAray.filter(cl => cl.id === no);
+        return data
     }
 }
 
-const addobj = new DBMYSQL().registerUser(3,'newuser', 'newusere@gmail.com').then(res => console.log(res)
-).catch(err => console.log(err)
-)
+// const addobj = new DBMYSQL().registerUser(3,'newuser', 'newusere@gmail.com').then(res => console.log(res)
+// ).catch(err => console.log(err)
+// )
+
+
+const searchuser = new DBMYSQL().searchUser(1).then(res => console.log(res)
+).catch(err => console.log(err))
+
+ 
+    
