@@ -39,3 +39,21 @@ async function webscrapping() {
 }
 
 //then calling function
+
+
+//function overloading
+
+//it provides same fn with different parameters
+
+function Process1(a: string, b: string): string;
+
+function Process1(a:number, b: number): string;
+
+function Process1(a: any, b: any): any{
+    for(let i = 0; i < 5; i++){
+        console.log(`first input: ${a} and last input: ${b}`);
+    }
+}
+
+Process1('nischal', 'baniya')
+Process1(2,3)
