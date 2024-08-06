@@ -37,3 +37,19 @@ class UserManagement {
     const isLoggedIn = await userManager.LoginUser('nishal@node.js', 'admin');
     console.log('Login successful:', isLoggedIn);
 })();
+
+
+async function getIPFunction(){
+    try {
+    
+        const response = await fetch('https://api.ipify.org?format=json');
+        // console.log(response.text());
+    
+        const data = await response.text();
+        console.log(data);
+        
+        
+    } catch (error) {
+        console.log('Error caught ', error);
+    }    
+    }
