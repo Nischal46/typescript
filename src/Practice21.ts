@@ -14,3 +14,11 @@ let letterCountinginObject: {} = stringtoarray.reduce((acc, cv) => {
 }, <any>{})
 
 console.log(letterCountinginObject);
+
+
+//multiple of 3
+
+for(let i: number = 1; i < 11; i++){
+    console.log(`${i} * 3 = ${3*1}`);
+    
+} 
