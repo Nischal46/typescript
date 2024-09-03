@@ -18,3 +18,16 @@ function Process1(inp1: any, inp2: any): any{
 console.log(Process1(3,4));
 console.log(Process1('Nischal', 'Baniya'));
 
+//rest parameteres
+
+function sum(...numbers: number[]): number{
+    let total = 0;
+    for(let num of numbers){
+        total += num;
+    }
+    return total;
+}
+
+
+console.log(sum(12, 23, 34));
+
