@@ -10,3 +10,13 @@ function restparameterconcept(...numbers: number[]){
 }
 
 restparameterconcept(12, 32, 43,)
+
+
+// destructuring in function
+let destructuring = {
+    name: 'mouse',
+    price: '1200',
+    brand: 'fantech'
+}
+
+let {name, price, brand} = destructuring 
