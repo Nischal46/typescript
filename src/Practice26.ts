@@ -27,3 +27,4 @@ class classobjectProduct{
 const classconstructorcall: objectSchema = new classobjectProduct('mobile', 'white', false);
 console.log(classconstructorcall);
 
+
